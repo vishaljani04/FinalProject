@@ -21,6 +21,9 @@
   <link href="assets/css/icons.css" rel="stylesheet" type="text/css" />
   <!-- Custom Style-->
   <link href="assets/css/app-style.css" rel="stylesheet" />
+  <script>
+// history.forward(1);
+</script>
 
 </head>
 

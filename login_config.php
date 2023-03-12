@@ -24,33 +24,37 @@ if (isset($_POST['email']) && isset($_POST['password'])) {
 	}
 	
 	
+	
 		$sql = "SELECT * FROM login WHERE email='$email_id' AND password='$pass'";
 
 		$result = mysqli_query($conn, $sql);
 
+		
+
+			
+
 		if (mysqli_num_rows($result) === 1) {
-			// $row = mysqli_fetch_assoc($result);
-            // if ($row['email'] === $email_id && $row['password'] === $pass) {
-            // 	$_SESSION['email'] = $row['email'];
-            // 	// $_SESSION['name'] = $row['name'];
-            // 	$_SESSION['id'] = $row['id']; 
+			$row = mysqli_fetch_assoc($result);
+            if ($row['email'] === $email_id && $row['password'] === $pass) {
+            	$_SESSION['email'] = $row['email'];
+            	// $_SESSION['name'] = $row['name'];
+            	$_SESSION['password'] = $row['password']; 
             	header("Location: home.php");
 		        exit();
+            }
 			
 		
+		}
 
+		if(mysqli_num_rows($result) === 0){
+			header("Location: index.php?error=Incorect User name or password");
+			exit();
+		}
 		
-            }
-			else{
-				header("Location: index.php?error=Incorect User name or password");
-		        exit();
-			}
-		
-		// }
-
-		// else{
-		// 	header("Location: index.php");
-	    //     exit();
-		// }
+		else{
+			header("Location: index.php");
+	        exit();
+		}
+			
 
 	

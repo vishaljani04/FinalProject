@@ -1,9 +1,16 @@
-<?php 
+<?php
 session_start();
 
-// if (isset($_SESSION['sno']) && isset($_SESSION['email'])) {
+if (!isset($_SESSION['email']) && isset($_SESSION['password'])) {
 
- ?>
+  header("index.php");
+} else {
+
+
+
+
+
+?>
 
 
 <!DOCTYPE html>
@@ -16,6 +23,7 @@ session_start();
   <meta name="description" content="" />
   <meta name="author" content="" />
   <title>Dashtreme Admin - Free Dashboard for Bootstrap 4 by Codervent</title>
+
   <!-- loader-->
   <link href="assets/css/pace.min.css" rel="stylesheet" />
   <script src="assets/js/pace.min.js"></script>
@@ -35,7 +43,9 @@ session_start();
   <link href="assets/css/sidebar-menu.css" rel="stylesheet" />
   <!-- Custom Style-->
   <link href="assets/css/app-style.css" rel="stylesheet" />
-
+  <script>
+    history.forward(1);
+  </script>
 </head>
 
 <body class="bg-theme bg-theme2">
@@ -61,13 +71,13 @@ session_start();
 
         <li>
           <a href="forms.html">
-            <i class="zmdi zmdi-format-list-bulleted"></i> <span>Forms</span>
+            <i class="zmdi zmdi-format-list-bulleted"></i> <span>Event Manager</span>
           </a>
         </li>
 
         <li>
           <a href="tables.html">
-            <i class="zmdi zmdi-grid"></i> <span>Tables</span>
+            <i class="zmdi zmdi-grid"></i> <span>Worker</span>
           </a>
         </li>
 
@@ -75,21 +85,21 @@ session_start();
 
         <li>
           <a href="profile.html">
-            <i class="zmdi zmdi-face"></i> <span>Profile</span>
+            <i class="zmdi zmdi-face"></i> <span>App Ui</span>
           </a>
         </li>
 
         <li>
           <a href="index.html" target="_blank">
-            <i class="zmdi zmdi-lock"></i> <span>Login</span>
+            <i class="zmdi zmdi-lock"></i> <span>Setting</span>
           </a>
         </li>
 
-        <li>
+        <!-- <li>
           <a href="register.html" target="_blank">
             <i class="zmdi zmdi-account-circle"></i> <span>Registration</span>
           </a>
-        </li>
+        </li> -->
 
 
 
@@ -117,18 +127,15 @@ session_start();
 
         <ul class="navbar-nav align-items-center right-nav-link">
           <li class="nav-item dropdown-lg">
-            <a class="nav-link dropdown-toggle dropdown-toggle-nocaret waves-effect" data-toggle="dropdown"
-              href="javascript:void();">
+            <a class="nav-link dropdown-toggle dropdown-toggle-nocaret waves-effect" data-toggle="dropdown" href="javascript:void();">
               <i class="fa fa-envelope-open-o"></i></a>
           </li>
           <li class="nav-item dropdown-lg">
-            <a class="nav-link dropdown-toggle dropdown-toggle-nocaret waves-effect" data-toggle="dropdown"
-              href="javascript:void();">
+            <a class="nav-link dropdown-toggle dropdown-toggle-nocaret waves-effect" data-toggle="dropdown" href="javascript:void();">
               <i class="fa fa-bell-o"></i></a>
           </li>
           <li class="nav-item language">
-            <a class="nav-link dropdown-toggle dropdown-toggle-nocaret waves-effect" data-toggle="dropdown"
-              href="javascript:void();"><i class="fa fa-flag"></i></a>
+            <a class="nav-link dropdown-toggle dropdown-toggle-nocaret waves-effect" data-toggle="dropdown" href="javascript:void();"><i class="fa fa-flag"></i></a>
             <ul class="dropdown-menu dropdown-menu-right">
               <li class="dropdown-item"> <i class="flag-icon flag-icon-gb mr-2"></i> English</li>
               <li class="dropdown-item"> <i class="flag-icon flag-icon-fr mr-2"></i> French</li>
@@ -138,15 +145,13 @@ session_start();
           </li>
           <li class="nav-item">
             <a class="nav-link dropdown-toggle dropdown-toggle-nocaret" data-toggle="dropdown" href="#">
-              <span class="user-profile"><img src="https://via.placeholder.com/110x110" class="img-circle"
-                  alt="user avatar"></span>
+              <span class="user-profile"><img src="https://via.placeholder.com/110x110" class="img-circle" alt="user avatar"></span>
             </a>
             <ul class="dropdown-menu dropdown-menu-right">
               <li class="dropdown-item user-details">
                 <a href="javaScript:void();">
                   <div class="media">
-                    <div class="avatar"><img class="align-self-start mr-3" src="https://via.placeholder.com/110x110"
-                        alt="user avatar"></div>
+                    <div class="avatar"><img class="align-self-start mr-3" src="https://via.placeholder.com/110x110" alt="user avatar"></div>
                     <div class="media-body">
                       <h6 class="mt-2 user-title">Sarajhon Mccoy</h6>
                       <p class="user-subtitle">mccoy@example.com</p>
@@ -162,8 +167,9 @@ session_start();
               <li class="dropdown-item"><i class="icon-settings mr-2"></i> Setting</li>
               <li class="dropdown-divider"></li>
 
-               <a href="logout.php">
-              <li class="dropdown-item"><i class="icon-power mr-2"></i> Logout</li>
+
+              <a href="logout.php">
+                <li class="dropdown-item"><i class="icon-power mr-2"></i> Logout</li>
               </a>
 
             </ul>
@@ -190,8 +196,7 @@ session_start();
                   <div class="progress my-3" style="height:3px;">
                     <div class="progress-bar" style="width:55%"></div>
                   </div>
-                  <p class="mb-0 text-white small-font">Total Orders <span class="float-right">+4.2% <i
-                        class="zmdi zmdi-long-arrow-up"></i></span></p>
+                  <p class="mb-0 text-white small-font">Total Orders <span class="float-right">+4.2% <i class="zmdi zmdi-long-arrow-up"></i></span></p>
                 </div>
               </div>
               <div class="col-12 col-lg-6 col-xl-3 border-light">
@@ -200,8 +205,7 @@ session_start();
                   <div class="progress my-3" style="height:3px;">
                     <div class="progress-bar" style="width:55%"></div>
                   </div>
-                  <p class="mb-0 text-white small-font">Total Revenue <span class="float-right">+1.2% <i
-                        class="zmdi zmdi-long-arrow-up"></i></span></p>
+                  <p class="mb-0 text-white small-font">Total Revenue <span class="float-right">+1.2% <i class="zmdi zmdi-long-arrow-up"></i></span></p>
                 </div>
               </div>
               <div class="col-12 col-lg-6 col-xl-3 border-light">
@@ -210,8 +214,7 @@ session_start();
                   <div class="progress my-3" style="height:3px;">
                     <div class="progress-bar" style="width:55%"></div>
                   </div>
-                  <p class="mb-0 text-white small-font">Visitors <span class="float-right">+5.2% <i
-                        class="zmdi zmdi-long-arrow-up"></i></span></p>
+                  <p class="mb-0 text-white small-font">Visitors <span class="float-right">+5.2% <i class="zmdi zmdi-long-arrow-up"></i></span></p>
                 </div>
               </div>
               <div class="col-12 col-lg-6 col-xl-3 border-light">
@@ -220,8 +223,7 @@ session_start();
                   <div class="progress my-3" style="height:3px;">
                     <div class="progress-bar" style="width:55%"></div>
                   </div>
-                  <p class="mb-0 text-white small-font">Messages <span class="float-right">+2.2% <i
-                        class="zmdi zmdi-long-arrow-up"></i></span></p>
+                  <p class="mb-0 text-white small-font">Messages <span class="float-right">+2.2% <i class="zmdi zmdi-long-arrow-up"></i></span></p>
                 </div>
               </div>
             </div>
@@ -503,10 +505,7 @@ session_start();
 
 </html>
 
- <?php
-// }else{
-//      header("Location: index.php");
-//      exit();
-// }
+<?php
 
-?> 
+}
+?>
