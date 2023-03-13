@@ -23,6 +23,12 @@
   <link href="assets/css/app-style.css" rel="stylesheet" />
   <script>
 // history.forward(1);
+    
+    function preventBack(){
+      window.history.forward();
+    }
+    setTimeout("preventBack()",0);
+    window.onunload = function () {null;}
 </script>
 
 </head>
